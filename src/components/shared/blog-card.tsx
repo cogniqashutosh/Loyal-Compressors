@@ -28,7 +28,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
           <span>{post.readTime}</span>
           <span className="flex items-center gap-1 font-medium text-primary">
             Read More
-            <ArrowRight className="size-3.5" />
+            <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
           </span>
         </div>
       </div>

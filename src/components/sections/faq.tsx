@@ -50,7 +50,7 @@ export function Faq() {
             className={buttonVariants({ variant: "cta", className: "mt-8 h-11 gap-2 px-6" })}
           >
             Ask Our Team
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4 transition-transform group-hover/button:translate-x-1" />
           </Link>
         </FadeIn>
       </div>

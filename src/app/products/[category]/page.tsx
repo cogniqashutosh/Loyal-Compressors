@@ -76,7 +76,7 @@ export default async function ProductCategoryPage({ params }: CategoryPageProps)
           <>
             <Link href="/contact" className={buttonVariants({ variant: "cta", className: "h-11 gap-2 px-6" })}>
               Request a Quote
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 transition-transform group-hover/button:translate-x-1" />
             </Link>
             <Link
               href="/products"

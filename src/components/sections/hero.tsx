@@ -14,7 +14,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="animate-kenburns object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/30" />
       </div>
@@ -38,7 +38,7 @@ export function Hero() {
               className={buttonVariants({ variant: "cta", className: "h-12 gap-2 px-7 text-base" })}
             >
               Request a Quote
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 transition-transform group-hover/button:translate-x-1" />
             </Link>
             <Link
               href="/products"

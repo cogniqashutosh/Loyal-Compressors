@@ -32,7 +32,7 @@ export function WhyChooseUs() {
       <div className="mt-12 flex justify-center">
         <Link href="/contact" className={buttonVariants({ variant: "default", className: "h-11 gap-2 px-6" })}>
           Get in Touch
-          <ArrowRight className="size-4" />
+          <ArrowRight className="size-4 transition-transform group-hover/button:translate-x-1" />
         </Link>
       </div>
     </SectionWrapper>

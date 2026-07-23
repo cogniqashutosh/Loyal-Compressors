@@ -82,7 +82,7 @@ export function MobileNav() {
             className={buttonVariants({ variant: "cta", className: "w-full gap-2" })}
           >
             Request a Quote
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4 transition-transform group-hover/button:translate-x-1" />
           </Link>
         </SheetFooter>
       </SheetContent>

@@ -29,7 +29,10 @@ export function Logo({
   )
 
   return (
-    <Link href="/" className={cn("flex items-center", className)}>
+    <Link
+      href="/"
+      className={cn("flex items-center transition-transform duration-200 hover:scale-[1.03]", className)}
+    >
       {invert ? (
         <span className="rounded-lg bg-white px-3 py-1.5">{mark}</span>
       ) : (

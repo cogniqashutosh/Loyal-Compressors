@@ -124,11 +124,11 @@ export function MegaMenu({ open, onClose }: MegaMenuProps) {
                 <Link
                   href="/products"
                   onClick={onClose}
-                  className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="group flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   <LayoutGrid className="size-4" />
                   View All Products
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>

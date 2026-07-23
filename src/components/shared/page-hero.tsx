@@ -32,7 +32,7 @@ export function PageHero({
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="animate-kenburns object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/35" />
         </div>

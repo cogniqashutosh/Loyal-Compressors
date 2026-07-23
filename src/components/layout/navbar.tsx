@@ -18,6 +18,7 @@ function isActivePath(pathname: string, href: string) {
 
 export function Navbar() {
   const [productsOpen, setProductsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const navRef = useRef<HTMLElement>(null)
   const pathname = usePathname()
 
@@ -29,13 +30,30 @@ export function Navbar() {
     return () => document.removeEventListener("keydown", handleKeyDown)
   }, [])
 
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 8)
+    }
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <header
       ref={navRef}
-      className="sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80"
+      className={cn(
+        "sticky top-0 z-50 border-b bg-background/95 backdrop-blur transition-shadow duration-300 supports-backdrop-filter:bg-background/80",
+        scrolled ? "border-border shadow-[0_4px_20px_-8px_rgba(15,23,42,0.12)]" : "border-border/70"
+      )}
       onMouseLeave={() => setProductsOpen(false)}
     >
-      <div className="relative mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 md:px-10">
+      <div
+        className={cn(
+          "relative mx-auto flex max-w-[1400px] items-center justify-between px-6 transition-[height] duration-300 md:px-10",
+          scrolled ? "h-16" : "h-20"
+        )}
+      >
         <Logo size="lg" />
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
@@ -85,7 +103,7 @@ export function Navbar() {
             )}
           >
             Request a Quote
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4 transition-transform group-hover/button:translate-x-1" />
           </Link>
           <MobileNav />
         </div>

@@ -49,7 +49,7 @@ export function ModelCard({ model, selected, onToggleCompare, compareDisabled }:
             className={buttonVariants({ variant: "outline", size: "sm", className: "h-9 gap-1.5 px-4" })}
           >
             View Details
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4 transition-transform group-hover/button:translate-x-1" />
           </Link>
         </div>
       </div>
