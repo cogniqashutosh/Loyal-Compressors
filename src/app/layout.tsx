@@ -4,6 +4,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { JsonLd } from "@/components/shared/json-ld";
+import { ScrollToTop } from "@/components/shared/scroll-to-top";
+import { ChatWidget } from "@/components/shared/chat-widget";
 import { organizationSchema } from "@/lib/seo";
 import { siteConfig } from "@/data/site-config";
 import "./globals.css";
@@ -62,6 +64,8 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <ScrollToTop />
+          <ChatWidget />
         </MotionProvider>
       </body>
     </html>
