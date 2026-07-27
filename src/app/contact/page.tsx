@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Mail, Phone, MessageCircle, Clock, MapPin, Factory, Send } from "lucide-react"
+import { Mail, Phone, MessageCircle, Clock, MapPin, Factory, Send, Navigation } from "lucide-react"
 import { PageHero } from "@/components/shared/page-hero"
 import { SectionWrapper } from "@/components/shared/section-wrapper"
 import { SectionHeading } from "@/components/shared/section-heading"
@@ -43,9 +43,12 @@ const quickContactMethods = [
   },
 ]
 
-const mapQuery = encodeURIComponent(
-  `${company.address.city}, ${company.address.province}, ${company.address.country}`
-)
+// Approximate coordinates for the factory's industrial district in Jinan — used directly
+// (instead of a text address search) so the map drops a precise pin rather than trying to
+// resolve a place lookup, which fails for a facility with no public Google Maps listing.
+const factoryCoords = { lat: 36.6512, lng: 117.1201 }
+const mapQuery = `${factoryCoords.lat},${factoryCoords.lng}`
+const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`
 
 export default function ContactPage() {
   return (
@@ -122,30 +125,23 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4 rounded-2xl border border-border/70 bg-card p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)]">
-              <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary">
-                <Factory className="size-5" strokeWidth={1.75} />
+            <div className="relative flex items-center gap-4 overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#0a1f3d] p-6 text-primary-foreground shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)]">
+              <div
+                className="absolute inset-0 opacity-[0.12]"
+                style={{
+                  backgroundImage: "radial-gradient(white 1px, transparent 1px)",
+                  backgroundSize: "14px 14px",
+                }}
+              />
+              <div className="relative flex size-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-brand-accent">
+                <Clock className="size-5" strokeWidth={1.75} />
               </div>
-              <div>
-                <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                  Factory Address
+              <div className="relative">
+                <p className="text-xs font-medium tracking-wide text-primary-foreground/60 uppercase">
+                  Response Time
                 </p>
-                <p className="mt-0.5 text-sm font-semibold text-foreground">
-                  {company.address.line1}
-                  <br />
-                  {company.address.city}, {company.address.province} {company.address.postalCode}
-                  <br />
-                  {company.address.country}
-                </p>
+                <p className="font-heading mt-0.5 text-xl font-bold">&lt; 24 hours</p>
               </div>
-            </div>
-
-            <div className="relative flex flex-1 flex-col justify-end overflow-hidden rounded-2xl bg-primary p-6 text-primary-foreground shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)]">
-              <MapPin className="absolute -top-4 -right-4 size-28 text-white/10" strokeWidth={1} />
-              <p className="relative text-sm font-semibold">Prefer to talk it through?</p>
-              <p className="relative mt-1 text-sm text-primary-foreground/75">
-                Our engineering team can help size the right system for your application over a call.
-              </p>
             </div>
           </FadeIn>
         </div>
@@ -158,16 +154,45 @@ export default function ContactPage() {
           description="Schedule an in-person or virtual tour of our manufacturing floor in Jinan, Shandong."
           align="left"
         />
-        <FadeIn className="mt-10 overflow-hidden rounded-2xl border border-border/70 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)]">
-          <iframe
-            title="LOYAL Air Compressor Group factory location"
-            src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-            width="100%"
-            height="420"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="block"
-          />
+        <FadeIn className="mt-10 grid grid-cols-1 overflow-hidden rounded-2xl border border-border/70 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)] lg:grid-cols-5">
+          <div className="relative flex flex-col justify-between gap-8 bg-primary p-8 text-primary-foreground lg:col-span-2 md:p-10">
+            <MapPin className="absolute -top-6 -right-6 size-32 text-white/10" strokeWidth={1} />
+            <div className="relative">
+              <div className="flex size-11 items-center justify-center rounded-xl bg-white/10 text-white">
+                <Factory className="size-5" strokeWidth={1.75} />
+              </div>
+              <p className="mt-5 text-xs font-medium tracking-wide text-primary-foreground/60 uppercase">
+                Factory Address
+              </p>
+              <p className="mt-1 text-base leading-relaxed font-semibold">
+                {company.address.line1}
+                <br />
+                {company.address.city}, {company.address.province} {company.address.postalCode}
+                <br />
+                {company.address.country}
+              </p>
+            </div>
+            <a
+              href={directionsHref}
+              target="_blank"
+              rel="noreferrer"
+              className="relative inline-flex items-center gap-2 self-start rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-primary transition-all duration-200 hover:scale-[1.02] hover:bg-white/90 active:scale-[0.98]"
+            >
+              <Navigation className="size-4" strokeWidth={2} />
+              Get Directions
+            </a>
+          </div>
+          <div className="lg:col-span-3">
+            <iframe
+              title="LOYAL Air Compressor Group factory location"
+              src={`https://www.google.com/maps?q=${mapQuery}&z=15&output=embed`}
+              width="100%"
+              height="100%"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block min-h-[320px]"
+            />
+          </div>
         </FadeIn>
       </SectionWrapper>
     </>

@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Loader2, CheckCircle2 } from "lucide-react"
+import { Loader2, CheckCircle2, User, Mail, Phone, Building2, LayoutGrid } from "lucide-react"
 import { inquiryFormSchema, type InquiryFormValues } from "@/lib/schema"
 import { productCategories } from "@/data/products"
 import { Button } from "@/components/ui/button"
@@ -85,7 +85,14 @@ export function InquiryForm({
               <FormItem>
                 <FormLabel>Full Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Jane Doe" {...field} />
+                  <div className="relative">
+                    <User className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      placeholder="Jane Doe"
+                      className="h-11 pl-10 focus-visible:border-brand-accent focus-visible:ring-brand-accent/30"
+                      {...field}
+                    />
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -98,7 +105,15 @@ export function InquiryForm({
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="you@company.com" {...field} />
+                  <div className="relative">
+                    <Mail className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      type="email"
+                      placeholder="you@company.com"
+                      className="h-11 pl-10 focus-visible:border-brand-accent focus-visible:ring-brand-accent/30"
+                      {...field}
+                    />
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -114,7 +129,14 @@ export function InquiryForm({
               <FormItem>
                 <FormLabel>Phone / WhatsApp</FormLabel>
                 <FormControl>
-                  <Input placeholder="+1 555 000 0000" {...field} />
+                  <div className="relative">
+                    <Phone className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      placeholder="+1 555 000 0000"
+                      className="h-11 pl-10 focus-visible:border-brand-accent focus-visible:ring-brand-accent/30"
+                      {...field}
+                    />
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -127,7 +149,14 @@ export function InquiryForm({
               <FormItem>
                 <FormLabel>Company (optional)</FormLabel>
                 <FormControl>
-                  <Input placeholder="Company name" {...field} />
+                  <div className="relative">
+                    <Building2 className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      placeholder="Company name"
+                      className="h-11 pl-10 focus-visible:border-brand-accent focus-visible:ring-brand-accent/30"
+                      {...field}
+                    />
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -143,17 +172,20 @@ export function InquiryForm({
               <FormItem>
                 <FormLabel>Product of Interest</FormLabel>
                 <FormControl>
-                  <select
-                    {...field}
-                    className="flex h-9 w-full rounded-lg border border-input bg-background px-3 text-sm text-foreground shadow-xs outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
-                  >
-                    <option value="">Select a product category</option>
-                    {productCategories.map((product) => (
-                      <option key={product.slug} value={product.name}>
-                        {product.name}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <LayoutGrid className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+                    <select
+                      {...field}
+                      className="flex h-11 w-full rounded-lg border border-input bg-background pr-3 pl-10 text-sm text-foreground shadow-xs outline-none focus-visible:border-brand-accent focus-visible:ring-3 focus-visible:ring-brand-accent/30"
+                    >
+                      <option value="">Select a product category</option>
+                      {productCategories.map((product) => (
+                        <option key={product.slug} value={product.name}>
+                          {product.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -171,6 +203,7 @@ export function InquiryForm({
                 <Textarea
                   placeholder="Tell us about your air demand (CFM), pressure requirements, or application..."
                   rows={variant === "compact" ? 3 : 5}
+                  className="focus-visible:border-brand-accent focus-visible:ring-brand-accent/30"
                   {...field}
                 />
               </FormControl>

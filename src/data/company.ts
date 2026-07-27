@@ -18,6 +18,8 @@ export const company = {
   },
   social: {
     facebook: "https://www.facebook.com/LoyalAircompressor/",
+    instagram: "https://www.instagram.com/loyalaircompressor/",
+    tiktok: "https://www.tiktok.com/@loyalaircompressor",
   },
   businessHours: "Mon – Sat, 9:00 AM – 6:00 PM (GMT+8)",
 } as const

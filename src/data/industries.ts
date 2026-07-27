@@ -14,6 +14,7 @@ export const industries: Industry[] = [
     slug: "manufacturing",
     name: "Manufacturing",
     icon: Factory,
+    image: "/images/factory/production-line.webp",
     description: "Reliable, continuous-duty compressed air for production lines and automation.",
     overview:
       "Manufacturing plants run pneumatic tools, automation, and control systems around the clock — any compressed air interruption stops the line. Our screw compressors and complete systems are sized for continuous duty with minimal unplanned downtime.",
@@ -28,6 +29,7 @@ export const industries: Industry[] = [
     slug: "mining",
     name: "Mining",
     icon: Mountain,
+    image: "/images/industries/mining.jpg",
     description: "Rugged, high-capacity systems built for harsh site conditions.",
     overview:
       "Mining sites demand compressed air equipment that can handle dust, vibration, remote locations, and extreme temperatures — often with no grid power available. Our portable and skid-mounted diesel compressors are built for exactly this environment.",
@@ -42,6 +44,7 @@ export const industries: Industry[] = [
     slug: "food-beverage",
     name: "Food & Beverage",
     icon: UtensilsCrossed,
+    image: "/images/factory/quality-testing.webp",
     description: "Oil-free, contamination-safe air for processing and packaging lines.",
     overview:
       "Air that contacts food, beverage, or packaging must be free of oil contamination risk. Our oil-free compressors are certified to ISO 8573-1 Class 0, giving processing and packaging lines a verifiable air-quality guarantee.",
@@ -56,6 +59,7 @@ export const industries: Industry[] = [
     slug: "automotive",
     name: "Automotive",
     icon: Car,
+    image: "/images/stat-employees.jpg",
     description: "Precision pressure control for assembly, tooling, and paint booths.",
     overview:
       "Automotive assembly relies on precise, stable air pressure for torque tools, robotics, and paint booths. Our VSD screw compressors hold pressure within tight tolerances while reducing energy use during variable-demand shifts.",
@@ -70,6 +74,7 @@ export const industries: Industry[] = [
     slug: "textile",
     name: "Textile",
     icon: Shirt,
+    image: "/images/factory/facility.webp",
     description: "Consistent airflow for looms, spinning, and finishing equipment.",
     overview:
       "Textile machinery — looms, spinning frames, and finishing lines — needs a steady, adequately dried air supply to avoid fabric defects and equipment wear. We size systems to your plant's continuous air demand.",
@@ -84,6 +89,7 @@ export const industries: Industry[] = [
     slug: "medical",
     name: "Medical",
     icon: Stethoscope,
+    image: "/images/timeline-vsd.jpg",
     description: "ISO Class 0 certified air purity for pharmaceutical and medical applications.",
     overview:
       "Pharmaceutical and medical-grade applications require certified oil-free air with full documentation. Our oil-free compressor line is designed to meet these air-purity and compliance requirements out of the box.",
@@ -98,6 +104,7 @@ export const industries: Industry[] = [
     slug: "electronics",
     name: "Electronics",
     icon: Cpu,
+    image: "/images/about-hero.jpg",
     description: "Ultra-clean, moisture-free air for sensitive component manufacturing.",
     overview:
       "Electronics manufacturing is sensitive to both contamination and moisture. Our oil-free compressors paired with desiccant dryers deliver the ultra-clean, ultra-dry air required for sensitive component production.",

@@ -1,10 +1,11 @@
 import type { Metadata } from "next"
 import { PageHero } from "@/components/shared/page-hero"
 import { SectionWrapper } from "@/components/shared/section-wrapper"
-import { IndustryCard } from "@/components/shared/industry-card"
+import { SectionHeading } from "@/components/shared/section-heading"
+import { IndustrySelector } from "@/components/shared/industry-selector"
 import { CtaBanner } from "@/components/shared/cta-banner"
 import { JsonLd } from "@/components/shared/json-ld"
-import { StaggerContainer, StaggerItem } from "@/components/motion/stagger-container"
+import { FadeIn } from "@/components/motion/fade-in"
 import { industries } from "@/data/industries"
 import { siteConfig } from "@/data/site-config"
 import { breadcrumbSchema } from "@/lib/seo"
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
 }
 
 export default function IndustriesPage() {
+  const selectorIndustries = industries.map((industry) => ({
+    slug: industry.slug,
+    name: industry.name,
+    description: industry.description,
+    image: industry.image,
+    icon: <industry.icon className="size-4.5" strokeWidth={1.75} />,
+  }))
+
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ label: "Industries" }])} />
@@ -30,18 +39,15 @@ export default function IndustriesPage() {
       />
 
       <SectionWrapper background="muted">
-        <StaggerContainer className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-          {industries.map((industry) => (
-            <StaggerItem key={industry.slug}>
-              <IndustryCard
-                icon={industry.icon}
-                name={industry.name}
-                description={industry.description}
-                href={`/industries/${industry.slug}`}
-              />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+        <SectionHeading
+          eyebrow="Explore by Sector"
+          title="Select an Industry"
+          description="Click through to see how our systems are configured for each sector's specific demands."
+          align="left"
+        />
+        <FadeIn className="mt-10">
+          <IndustrySelector industries={selectorIndustries} />
+        </FadeIn>
       </SectionWrapper>
 
       <SectionWrapper className="pt-0">

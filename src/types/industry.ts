@@ -5,6 +5,7 @@ export interface Industry {
   slug: string
   name: string
   icon: LucideIcon
+  image: string
   description: string
   overview: string
   challenges: string[]

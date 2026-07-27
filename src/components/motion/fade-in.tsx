@@ -7,22 +7,26 @@ interface FadeInProps {
   children: ReactNode
   className?: string
   delay?: number
-  direction?: "up" | "down" | "none"
+  direction?: "up" | "down" | "left" | "right" | "none"
+  once?: boolean
 }
 
-const distanceByDirection = {
-  up: 24,
-  down: -24,
-  none: 0,
+const offsetByDirection = {
+  up: { y: 24 },
+  down: { y: -24 },
+  left: { x: -70 },
+  right: { x: 70 },
+  none: {},
 }
 
-export function FadeIn({ children, className, delay = 0, direction = "up" }: FadeInProps) {
+export function FadeIn({ children, className, delay = 0, direction = "up", once = true }: FadeInProps) {
   const variants: Variants = {
-    hidden: { opacity: 0, y: distanceByDirection[direction] },
+    hidden: { opacity: 0, ...offsetByDirection[direction] },
     visible: {
       opacity: 1,
+      x: 0,
       y: 0,
-      transition: { duration: 0.5, delay, ease: "easeOut" },
+      transition: { duration: 0.8, delay, ease: "easeOut" },
     },
   }
 
@@ -31,7 +35,7 @@ export function FadeIn({ children, className, delay = 0, direction = "up" }: Fad
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once, margin: "-80px" }}
       variants={variants}
     >
       {children}

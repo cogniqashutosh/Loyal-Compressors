@@ -35,6 +35,7 @@ export function IndustriesServed() {
               icon={industry.icon}
               name={industry.name}
               description={industry.description}
+              image={industry.image}
               href={`/industries/${industry.slug}`}
             />
           </StaggerItem>
