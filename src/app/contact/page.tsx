@@ -25,21 +25,21 @@ const quickContactMethods = [
     label: "Sales Phone",
     value: company.phone,
     href: `tel:${company.phone}`,
-    tint: "bg-primary/8 text-primary",
+    tint: "bg-secondary text-primary",
   },
   {
     icon: Mail,
     label: "Email",
     value: company.email,
     href: `mailto:${company.email}`,
-    tint: "bg-primary/8 text-primary",
+    tint: "bg-secondary text-primary",
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
     value: company.whatsapp,
     href: `https://wa.me/${company.whatsapp.replace(/\D/g, "")}`,
-    tint: "bg-[#25D366]/10 text-[#25D366]",
+    tint: "bg-secondary text-primary",
   },
 ]
 
@@ -64,38 +64,7 @@ export default function ContactPage() {
       />
 
       <SectionWrapper>
-        <StaggerContainer className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {quickContactMethods.map((method) => {
-            const Icon = method.icon
-            return (
-              <StaggerItem key={method.label}>
-                <a
-                  href={method.href}
-                  target={method.href.startsWith("http") ? "_blank" : undefined}
-                  rel={method.href.startsWith("http") ? "noreferrer" : undefined}
-                  className="group flex h-full flex-col gap-4 rounded-2xl border border-border/70 bg-card p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_4px_10px_rgba(15,23,42,0.08),0_24px_48px_-16px_rgba(15,23,42,0.22)]"
-                >
-                  <div
-                    className={cn(
-                      "flex size-12 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110",
-                      method.tint
-                    )}
-                  >
-                    <Icon className="size-5" strokeWidth={1.75} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                      {method.label}
-                    </p>
-                    <p className="mt-1 text-base font-semibold text-foreground">{method.value}</p>
-                  </div>
-                </a>
-              </StaggerItem>
-            )
-          })}
-        </StaggerContainer>
-
-        <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-5">
           <FadeIn className="relative overflow-hidden rounded-3xl border border-border/70 bg-card shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)] lg:col-span-3">
             <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-brand-accent to-primary" />
             <div className="p-8 md:p-10">
@@ -112,19 +81,7 @@ export default function ContactPage() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.1} className="flex flex-col gap-5 lg:col-span-2">
-            <div className="flex items-start gap-4 rounded-2xl border border-border/70 bg-card p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)]">
-              <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary">
-                <Clock className="size-5" strokeWidth={1.75} />
-              </div>
-              <div>
-                <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                  Business Hours
-                </p>
-                <p className="mt-0.5 text-sm font-semibold text-foreground">{company.businessHours}</p>
-              </div>
-            </div>
-
+          <FadeIn delay={0.1} className="flex h-full flex-col justify-between gap-5 lg:col-span-2">
             <div className="relative flex items-center gap-4 overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#0a1f3d] p-6 text-primary-foreground shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)]">
               <div
                 className="absolute inset-0 opacity-[0.12]"
@@ -143,6 +100,49 @@ export default function ContactPage() {
                 <p className="font-heading mt-0.5 text-xl font-bold">&lt; 24 hours</p>
               </div>
             </div>
+
+            <div className="flex items-start gap-4 rounded-2xl border border-border/70 bg-card p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)]">
+              <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary">
+                <Clock className="size-5" strokeWidth={1.75} />
+              </div>
+              <div>
+                <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                  Business Hours
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-foreground">{company.businessHours}</p>
+              </div>
+            </div>
+
+            <StaggerContainer className="flex flex-1 flex-col justify-between gap-4">
+              {quickContactMethods.map((method) => {
+                const Icon = method.icon
+                return (
+                  <StaggerItem key={method.label} className="flex-1">
+                    <a
+                      href={method.href}
+                      target={method.href.startsWith("http") ? "_blank" : undefined}
+                      rel={method.href.startsWith("http") ? "noreferrer" : undefined}
+                      className="group flex h-full items-center gap-4 rounded-2xl border border-border/70 bg-card p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_10px_rgba(15,23,42,0.08),0_20px_40px_-16px_rgba(15,23,42,0.2)]"
+                    >
+                      <div
+                        className={cn(
+                          "flex size-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110",
+                          method.tint
+                        )}
+                      >
+                        <Icon className="size-5" strokeWidth={1.75} />
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                          {method.label}
+                        </p>
+                        <p className="mt-0.5 text-base font-semibold text-foreground">{method.value}</p>
+                      </div>
+                    </a>
+                  </StaggerItem>
+                )
+              })}
+            </StaggerContainer>
           </FadeIn>
         </div>
       </SectionWrapper>

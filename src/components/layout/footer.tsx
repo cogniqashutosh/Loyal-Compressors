@@ -63,7 +63,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LOYAL Air Compressor on Facebook"
-                className="flex size-9 items-center justify-center rounded-full border border-white bg-[#1877F2] text-white transition-all duration-200 hover:scale-[1.06] hover:bg-[#0f5fcc]"
+                className="flex size-9 items-center justify-center overflow-hidden rounded-full ring-1 ring-white bg-[#1877F2] text-white transition-all duration-200 hover:scale-[1.06] hover:bg-[#0f5fcc]"
               >
                 <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden="true">
                   <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z" />
@@ -74,7 +74,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LOYAL Air Compressor on Instagram"
-                className="flex size-9 items-center justify-center rounded-full border border-white bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] text-white transition-all duration-200 hover:scale-[1.06]"
+                className="flex size-9 items-center justify-center overflow-hidden rounded-full ring-1 ring-white bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285aeb_90%)] text-white transition-all duration-200 hover:scale-[1.06]"
               >
                 <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden="true">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 1.837c-3.155 0-3.526.012-4.77.069-2.759.126-4.035 1.424-4.161 4.161-.057 1.243-.068 1.614-.068 4.769 0 3.156.012 3.527.068 4.77.126 2.735 1.4 4.035 4.161 4.161 1.244.057 1.614.07 4.77.07 3.156 0 3.527-.013 4.77-.07 2.756-.126 4.036-1.421 4.161-4.161.057-1.243.069-1.614.069-4.77 0-3.155-.012-3.526-.069-4.769-.125-2.741-1.402-4.035-4.161-4.161-1.243-.057-1.614-.069-4.77-.069zm0 4.541c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -85,7 +85,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LOYAL Air Compressor on TikTok"
-                className="flex size-9 items-center justify-center rounded-full border border-white bg-black transition-all duration-200 hover:scale-[1.06] hover:bg-black/80"
+                className="flex size-9 items-center justify-center overflow-hidden rounded-full ring-1 ring-white bg-black transition-all duration-200 hover:scale-[1.06] hover:bg-black/80"
               >
                 <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
                   <path

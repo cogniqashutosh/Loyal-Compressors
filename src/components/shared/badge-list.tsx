@@ -28,18 +28,19 @@ export function BadgeList({ certifications, variant = "compact" }: BadgeListProp
       {certifications.map((cert) => (
         <div
           key={cert.code}
-          className="group relative flex flex-col items-start gap-3 rounded-2xl border border-border/70 bg-card p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_4px_10px_rgba(15,23,42,0.08),0_24px_48px_-16px_rgba(15,23,42,0.2)]"
+          className="group relative flex flex-col items-start gap-3 overflow-hidden rounded-2xl border border-border/70 bg-card p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_4px_10px_rgba(15,23,42,0.08),0_24px_48px_-16px_rgba(15,23,42,0.2)]"
         >
-          <span className="absolute top-4 right-4 flex items-center gap-1 text-xs font-semibold text-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-brand-accent to-primary" />
+          <span className="absolute top-4 right-4 flex items-center gap-1 rounded-full bg-brand-accent/10 px-2.5 py-1 text-[11px] font-semibold text-brand-accent">
             <BadgeCheck className="size-3.5" strokeWidth={2} />
             Verified
           </span>
-          <div className="flex size-11 items-center justify-center rounded-xl bg-secondary text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-            <ShieldCheck className="size-5" strokeWidth={1.75} />
+          <div className="flex size-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_4px_12px_-4px_rgba(15,23,42,0.35)] transition-transform duration-300 group-hover:scale-110">
+            <ShieldCheck className="size-5.5" strokeWidth={1.75} />
           </div>
           <div>
             <p className="font-heading text-base font-bold text-foreground">{cert.code}</p>
-            <p className="text-sm font-medium text-muted-foreground">{cert.name}</p>
+            <p className="text-sm font-medium text-brand-accent">{cert.name}</p>
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">{cert.description}</p>
         </div>

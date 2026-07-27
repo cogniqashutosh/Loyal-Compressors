@@ -51,7 +51,7 @@ export function Navbar() {
       <div
         className={cn(
           "relative mx-auto flex max-w-[1400px] items-center justify-between px-6 transition-[height] duration-300 md:px-10",
-          scrolled ? "h-16" : "h-20"
+          scrolled ? "h-19" : "h-24"
         )}
       >
         <Logo size="lg" />

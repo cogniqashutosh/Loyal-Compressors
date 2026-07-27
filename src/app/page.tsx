@@ -3,10 +3,8 @@ import { TrustedWorldwide } from "@/components/sections/trusted-worldwide"
 import { ProductCategories } from "@/components/sections/product-categories"
 import { WhyChooseUs } from "@/components/sections/why-choose-us"
 import { IndustriesServed } from "@/components/sections/industries-served"
-import { ManufacturingExcellence } from "@/components/sections/manufacturing-excellence"
 import { FeaturedProducts } from "@/components/sections/featured-products"
 import { CustomerSuccess } from "@/components/sections/customer-success"
-import { Certifications } from "@/components/sections/certifications"
 import { Faq } from "@/components/sections/faq"
 import { JsonLd } from "@/components/shared/json-ld"
 import { faqSchema } from "@/lib/seo"
@@ -21,10 +19,8 @@ export default function Home() {
       <ProductCategories />
       <WhyChooseUs />
       <IndustriesServed />
-      <ManufacturingExcellence />
       <FeaturedProducts />
       <CustomerSuccess />
-      <Certifications />
       <Faq />
     </>
   )

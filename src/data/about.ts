@@ -31,50 +31,63 @@ export interface Milestone {
   description: string
   icon: MilestoneIconName
   image: string
+  facts: [string, string]
 }
 
 export const timeline: Milestone[] = [
   {
     year: "2011",
     title: "Company Founded",
-    description: "Shandong Loyal Machinery established, focused on rotary screw compressor manufacturing.",
+    description:
+      "Shandong Loyal Machinery was established in Jinan with a single production line and a focused mission: build reliable rotary screw compressors at a fair, factory-direct price. That first line laid the foundation for everything that followed.",
     icon: "Rocket",
     image: "/images/factory/facility.webp",
+    facts: ["Founded in Jinan, Shandong", "Started with rotary screw compressors"],
   },
   {
     year: "2014",
     title: "First Export Markets",
-    description: "Began exporting fixed-speed screw compressors to Southeast Asia and the Middle East.",
+    description:
+      "We shipped our first containers of fixed-speed screw compressors to Southeast Asia and the Middle East, learning export documentation, freight logistics, and international after-sales support from the ground up.",
     icon: "Globe",
     image: "/images/contact-hero.jpg",
+    facts: ["First shipments to Southeast Asia", "Entered Middle East markets"],
   },
   {
     year: "2017",
     title: "VSD Product Line Launched",
-    description: "Introduced variable-speed drive compressors to reduce customer energy costs.",
+    description:
+      "Rising energy costs pushed us to introduce variable-speed drive compressors, matching output to real-time air demand and cutting customer electricity bills by up to 35% compared to fixed-speed units.",
     icon: "Zap",
     image: "/images/timeline-vsd.jpg",
+    facts: ["Up to 35% lower electricity bills", "Output matched to real-time air demand"],
   },
   {
     year: "2020",
     title: "Oil-Free Line & ISO Certification",
-    description: "Launched ISO 8573-1 Class 0 certified oil-free compressors for food and pharma customers.",
+    description:
+      "We launched an ISO 8573-1 Class 0 certified oil-free line and earned ISO 9001 quality certification, opening the door to food, beverage, and pharmaceutical customers who require zero oil-contamination risk.",
     icon: "ShieldCheck",
     image: "/images/factory/quality-testing.webp",
+    facts: ["ISO 8573-1 Class 0 certified", "ISO 9001 quality management"],
   },
   {
     year: "2023",
     title: "50+ Export Markets",
-    description: "Expanded to serve customers across more than 50 countries worldwide.",
+    description:
+      "Our distributor and OEM network grew to cover more than 50 countries across Asia, Africa, Latin America, and the Middle East, backed by multilingual sales support and regional spare-parts stocking.",
     icon: "TrendingUp",
     image: "/images/timeline-export.jpg",
+    facts: ["Distributors across 4 continents", "Regional spare-parts stocking"],
   },
   {
     year: "2026",
     title: "15+ Years of Manufacturing",
-    description: "Continuing to invest in energy-efficient technology and expanded production capacity.",
+    description:
+      "Today our factory runs multiple production lines with in-house R&D, full quality testing, and expanded capacity — while we keep investing in energy-efficient technology for the next 15 years of growth.",
     icon: "Award",
     image: "/images/about-hero.jpg",
+    facts: ["Multiple active production lines", "Dedicated in-house R&D team"],
   },
 ]
 

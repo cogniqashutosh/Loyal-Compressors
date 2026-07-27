@@ -3,8 +3,8 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 const sizeClasses = {
-  default: "h-11",
-  lg: "h-16",
+  default: "h-14",
+  lg: "h-[70px]",
 }
 
 // Original brand logo, sourced from loyalaircompressor.com.
@@ -24,6 +24,8 @@ export function Logo({
       width={1336}
       height={578}
       priority
+      quality={100}
+      sizes="(max-width: 768px) 140px, 200px"
       className={cn(sizeClasses[size], "w-auto object-contain")}
     />
   )
